@@ -32,6 +32,29 @@ export class SSETransportServer {
   }
 
   private setupRoutes() {
+    // 根路径 - 服务状态页面
+    this.app.get("/", (req, res) => {
+      res.json({
+        name: "MCP LY Server",
+        version: "2.0.0",
+        description: "Model Context Protocol Server with SSE Transport",
+        status: "running",
+        timestamp: new Date().toISOString(),
+        endpoints: {
+          health: "/health",
+          sse: "/sse",
+          messages: "/messages"
+        },
+        activeConnections: this.connections.size,
+        tools: [
+          "SendEmail - 邮件发送工具",
+          "ApiTest - API测试工具", 
+          "GithubRead - GitHub仓库读取工具",
+          "GetFigmaData - Figma数据获取工具"
+        ]
+      });
+    });
+
     this.app.get("/sse", async (req, res) => {
       console.error("SSE 连接建立");
       try {
