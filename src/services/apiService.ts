@@ -1,13 +1,18 @@
 import axios from "axios";
 import ToolsType from "../types/toolsType.js";
 export class ApiService {
-  async callApi({ url, httpMethod, params, headers }: ToolsType.ApiTestToolInput) {
+  async callApi({
+    url,
+    httpMethod,
+    params,
+    headers,
+  }: ToolsType.ApiTestToolInput) {
     console.error(`API调用: ${httpMethod} ${url}`);
     const response = await axios({
       url,
       method: httpMethod,
-      data: JSON.parse(params || "{}"),
-      headers: JSON.parse(headers || "{}"),
+      data: params ? JSON.parse(params) : undefined,
+      headers: headers ? JSON.parse(headers) : undefined,
     });
 
     return response.data;

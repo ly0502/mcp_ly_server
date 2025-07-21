@@ -29,6 +29,7 @@ namespace ToolsType {
     FIGMA_API_TOKEN: string;
     nodeId?: string;
     depth?: number;
+    outputFormat?: "json" | "yaml";
   }
 }
 export default ToolsType;
