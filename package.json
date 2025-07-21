@@ -1,0 +1,40 @@
+{
+  "name": "mcp_ly_server",
+  "version": "2.0.0",
+  "description": "mcp_test",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "pub": "npm run build && npm publish",
+    "start:sse": "npm run build && node build/index.js --EMAIL_HOST='smtp.163.com' --EMAIL_PORT='465' --EMAIL_USER='luyin_0502@163.com' --EMAIL_PASS='ZQiBtq8yzvvnQC6S' --MODE='SSE'",
+    "start:stdio": "npm run build && node build/index.js --EMAIL_HOST='smtp.163.com' --EMAIL_PORT='465' --EMAIL_USER='luyin_0502@163.com' --EMAIL_PASS='ZQiBtq8yzvvnQC6S'"
+  },
+  "keywords": [],
+  "author": "LY",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.15.1",
+    "@types/nodemailer": "^6.4.17",
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "minimist": "^1.2.8",
+    "nodemailer": "^7.0.5",
+    "zod": "^3.25.76"
+  },
+  "type": "module",
+  "bin": {
+    "mcp_lu_test": "./build/index.js"
+  },
+  "files": [
+    "build",
+    "src"
+  ],
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^24.0.13",
+    "typescript": "^5.8.3"
+  }
+}
