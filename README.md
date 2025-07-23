@@ -43,10 +43,10 @@ npm run start:stdio
       "args": [
         "-y",
         "mcp_ly_server",
-        "--EMAIL_HOST='smtp.yeah.net'",
-        "--EMAIL_PORT='465'",
-        "--EMAIL_USER='mcpserver@yeah.net'",
-        "--EMAIL_PASS='YVR6E6pqmzUhT3F4'"
+        "--EMAIL_HOST=smtp.yeah.net",
+        "--EMAIL_PORT=465",
+        "--EMAIL_USER=mcpserver@yeah.net",
+        "--EMAIL_PASS=YVR6E6pqmzUhT3F4"
       ]
     },
 ```
