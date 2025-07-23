@@ -1,6 +1,6 @@
 {
   "name": "mcp_ly_server",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "mcp_test",
   "main": "src/index.js",
   "scripts": {
