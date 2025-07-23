@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖
-RUN npm install
+RUN yarn install
 
 # 复制源代码
 COPY . .
@@ -16,7 +16,7 @@ COPY . .
 # 构建应用
 RUN npm run build
 
-# 暴露端口（根据您的 SSE 服务端口设置，通常是 3000）
+# 暴露端口
 EXPOSE 8083
 
 # 启动 SSE 服务

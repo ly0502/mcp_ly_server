@@ -1,13 +1,13 @@
 {
   "name": "mcp_ly_server",
-  "version": "2.0.0",
+  "version": "2.0.6",
   "description": "mcp_test",
   "main": "src/index.js",
   "scripts": {
     "build": "tsc && chmod 755 build/index.js",
     "pub": "npm run build && npm publish",
-    "start:sse": "npm run build && node build/index.js --EMAIL_HOST='smtp.163.com' --EMAIL_PORT='465' --EMAIL_USER='luyin_0502@163.com' --EMAIL_PASS='ZQiBtq8yzvvnQC6S' --MODE='SSE'",
-    "start:stdio": "npm run build && node build/index.js --EMAIL_HOST='smtp.163.com' --EMAIL_PORT='465' --EMAIL_USER='luyin_0502@163.com' --EMAIL_PASS='ZQiBtq8yzvvnQC6S'"
+    "start:sse": "npm run build && node build/index.js --EMAIL_HOST='smtp.yeah.net' --EMAIL_PORT='465' --EMAIL_USER='mcpserver@yeah.net' --EMAIL_PASS='YVR6E6pqmzUhT3F4' --MODE='SSE'",
+    "start:stdio": "npm run build && node build/index.js --EMAIL_HOST='smtp.yeah.net' --EMAIL_PORT='465' --EMAIL_USER='mcpserver@yeah.net' --EMAIL_PASS='YVR6E6pqmzUhT3F4'"
   },
   "keywords": [],
   "author": "LY",
@@ -20,15 +20,15 @@
     "express": "^5.1.0",
     "minimist": "^1.2.8",
     "nodemailer": "^7.0.5",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "js-yaml": "^4.1.0"
   },
   "type": "module",
   "bin": {
-    "mcp_lu_test": "./build/index.js"
+    "mcp_ly_server": "./build/index.js"
   },
   "files": [
-    "build",
-    "src"
+    "build/"
   ],
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -36,7 +36,6 @@
     "@types/js-yaml": "^4.0.9",
     "@types/minimist": "^1.2.5",
     "@types/node": "^24.0.13",
-    "js-yaml": "^4.1.0",
     "typescript": "^5.8.3"
   }
 }

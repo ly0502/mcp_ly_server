@@ -2,103 +2,58 @@
 
 一个基于 Model Context Protocol (MCP) 的多功能服务器，支持邮件发送、API测试、GitHub仓库读取和Figma设计稿数据获取等功能。
 
-## 🚀 功能特性
+## 🚀 功能
 
 - 📧 **邮件发送工具** - 支持HTML格式邮件发送
 - 🔧 **API测试工具** - 支持多种HTTP方法的API调用测试
 - 📂 **GitHub读取工具** - 读取GitHub仓库文件和目录结构
 - 🎨 **Figma数据获取工具** - 提取Figma设计稿的节点数据和样式信息
 - 🚀 **双模式支持** - 同时支持 SSE (Server-Sent Events) 和 STDIO 传输模式
-- 🐳 **Docker支持** - 提供完整的Docker部署方案
 
-## 📦 安装
+## 📦 启动方式
 
 ### 环境要求
 
 - Node.js 20+
 - npm 或 yarn
 
-### 本地安装
+### 本地启动
 
 ```bash
-# 克隆项目
 git clone <repository-url>
 cd mcp_ly_test
-
-# 安装依赖
 npm install
 
-# 构建项目
-npm run build
-```
-
-## 🛠️ 配置
-
-### 环境变量
-
-服务器需要以下环境变量配置：
-
-```bash
-# 邮件服务配置 (如使用邮件服务必传)
-EMAIL_HOST=smtp.163.com          # SMTP服务器地址
-EMAIL_PORT=465                   # SMTP端口
-EMAIL_USER=your-email@163.com    # 发件人邮箱
-EMAIL_PASS=your-app-password     # 邮箱授权码
-
-# 服务模式配置 (可选)
-MODE=SSE                         # 传输模式: SSE 或 stdio (默认: stdio)
-PORT=8083                        # SSE模式下的服务端口 (默认: 8083)
-```
-
-### API Token配置
-
-使用工具时需要提供相应的API Token：
-
-- **GitHub工具**: 需要GitHub Personal Access Token
-- **Figma工具**: 需要Figma API Token
-
-## 🏃‍♂️ 运行方式
-
-### 1. 本地运行
-
-#### SSE模式 (推荐用于Web客户端)
-
-```bash
-# 使用预定义脚本启动
+# sse模式启动(适用于web客户端)
 npm run start:sse
-
-# 或手动启动
-npm run build && node build/index.js --EMAIL_HOST='smtp.163.com' --EMAIL_PORT='465' --EMAIL_USER='your-email@163.com' --EMAIL_PASS='your-password' --MODE='SSE' --PORT='8083'
-```
-
-#### STDIO模式 (用于命令行客户端)
-
-```bash
-# 使用预定义脚本启动
+# stdio模式启动(适用于本地编辑器)
 npm run start:stdio
-
-# 或手动启动
-npm run build && node build/index.js --EMAIL_HOST='smtp.163.com' --EMAIL_PORT='465' --EMAIL_USER='your-email@163.com' --EMAIL_PASS='your-password'
 ```
 
-### 2. Docker运行
-
-#### 构建Docker镜像
-
+### docker启动 默认sse模式
 ```bash
-# 构建镜像
-docker build -t mcp-ly-server .
+   docker compose up
+```
+## 使用
+
+### 编辑器直接配置 stdio模式
+```json
+    "mcp-ly-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp_ly_server",
+        "--EMAIL_HOST='smtp.yeah.net'",
+        "--EMAIL_PORT='465'",
+        "--EMAIL_USER='mcpserver@yeah.net'",
+        "--EMAIL_PASS='YVR6E6pqmzUhT3F4'"
+      ]
+    },
 ```
 
-#### 运行容器
+### web端使用
+   配置SSE连接端点 `http://127.0.0.1:8083/sse`:npm run start:sse | docker compose up 启动后的sse地址
 
-```bash
-# 基础运行
-docker run -d \
-  --name mcp-ly-server \
-  -p 8083:8083 \
-  mcp-ly-server
-```
 
 ## 🔧 工具说明
 

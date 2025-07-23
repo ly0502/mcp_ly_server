@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  mcp-ly-server:
+    image: crpi-5um61n0uxac2zk76.cn-hangzhou.personal.cr.aliyuncs.com/max_lu/mcp:1.0.0
+    container_name: mcp-ly-server
+    ports:
+      - "8083:8083"
+    restart: unless-stopped
